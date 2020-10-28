@@ -5,17 +5,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import fabricadesoftware.com.PreferenceHelper.get
 import fabricadesoftware.com.PreferenceHelper.set
 
 
 class MainActivity : AppCompatActivity() {
+
+    private val snackbar by lazy {
+        val mainLayout = findViewById<View>(R.id.mainLayout)
+        Snackbar.make(mainLayout, R.string.press_back_again, Snackbar.LENGTH_SHORT)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // shared preferences -> guardar variables y varoles datos puntuales, par clave valor(Key=>Value)
-        // sqlite -> cuando quereos tener localmente info del servidor por que muy rara vez cambia
+        // sqlite -> cuando queremos tener localmente info del servidor por que muy rara vez cambia
         // files -> la usamos cuando quremos guardar una imagen  un archivo
 
         /*
@@ -62,6 +70,14 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+    override fun onBackPressed() {
+        if (snackbar.isShown)
+            super.onBackPressed()
+        else
+            snackbar.show()
+    }
+
 
 }
 
