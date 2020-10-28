@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/logo"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MenuActivity">
+
+    <Button
+            app:backgroundTint="@color/btnsprimary"
+            android:id="@+id/btnCrearPrestamo"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/btn_create_prestamo_audiovisuales"
+            android:paddingLeft="60dp"
+            android:paddingRight="40dp"
+            app:icon="@drawable/computador"/>
+
+    <Button
+        app:backgroundTint="@color/btnsprimary"
+        android:id="@+id/btnCrearPrestamoBien"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/btn_create_prestamo_salida_bien"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
+        app:icon="@drawable/oficina"/>
+
+    <Button
+        app:backgroundTint="@color/btnsprimary"
+        android:id="@+id/btnCrearPrestamoParqueadero"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/btn_create_prestamo_parqueadero"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
+        app:icon="@drawable/bici"/>
+
+    <Button
+        app:backgroundTint="@color/btnsprimary"
+        android:id="@+id/btnMisPrestamos"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/btn_mis_prestamos"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
+        />
+
+
+    <Button
+        android:id="@+id/btnlogout"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
+        android:text="@string/btn_log_out"
+        app:backgroundTint="@color/btnsprimary"
+        app:icon="@drawable/power_off" />
+
+</LinearLayout>

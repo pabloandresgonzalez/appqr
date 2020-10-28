@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PrestamoActivity">
+
+    <TextView
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="left"
+        android:text="@string/label_my_prestamos"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvprestamos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-131dp"
+        android:padding="10dp"
+        tools:listitem="@layout/item_prestamo" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>

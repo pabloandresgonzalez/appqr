@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">AppQR</string>
+    <string name="label_login">Inicio de sesión</string>
+    <string name="label_email">Correo</string>
+    <string name="label_password">Clave</string>
+    <string name="btn_login">Ingresar</string>
+    <string name="label_go_to_register">¿Aun no te has registrado?</string>
+    <string name="label_register">Registro</string>
+    <string name="label_name">Nombre completo</string>
+    <string name="btn_register">Confirmar registro</string>
+    <string name="label_go_to_login">¿Ya tienes una cuenta?</string>
+    <string name="please_fill_your_register_data">Por favor completa tus datos</string>
+    <string name="btn_create_prestamo_audiovisuales">Prestamo audiovisuales</string>
+    <string name="btn_create_prestamo_salida_bien">Salida bienes fijos</string>
+    <string name="btn_create_prestamo_parqueadero">Parqueadero bicicleta</string>
+    <string name="btn_log_out">Cerrar sesión</string>
+    <string name="label_welcome">Bienvenido</string>
+    <string name="label_CrearPrestamo">Prestamo audiovisuales</string>
+    <string name="label_Ciudad">Ciudad</string>
+    <string name="label_bloque">Bloque</string>
+    <string name="label_direccion">Direccion</string>
+    <string name="label_Salon_oficina">Salon / Oficina</string>
+    <string name="label_cargo_programa">Cargo / Porgrama</string>
+    <string name="label_descripcion">Descripcion</string>
+    <string name="btn_hacer_solicitud">Hacer solicitud</string>
+    <string name="label_SolicitudPrestamo">Prestamo</string>
+    <string name="btnInicio">Inicio</string>
+    <string name="btn_mis_prestamos">Mis Prestamos</string>
+    <string name="item_prestamo_id">Presta # %1$d</string>
+    <string name="item_prestamo_usuario">Usuario: %1$s</string>
+    <string name="item_prestamo_bloque">Lugar / Bloque: %1$s</string>
+    <string name="label_my_prestamos">Mis prestamos</string>
+</resources>
