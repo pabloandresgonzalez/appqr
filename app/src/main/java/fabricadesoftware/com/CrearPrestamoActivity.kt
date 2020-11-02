@@ -1,20 +1,99 @@
 package fabricadesoftware.com
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+
 
 class CrearPrestamoActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_prestamo)
 
+        val cvstep1 = findViewById<View>(R.id.cvstep1)
+        val cvstep2 = findViewById<View>(R.id.cvstep2)
+        val etCiudad = findViewById<EditText>(R.id.etCiudad)
+        val etBloque = findViewById<EditText>(R.id.etBloque)
+        val etDireccion = findViewById<EditText>(R.id.etDireccion)
+        val etSalon = findViewById<EditText>(R.id.etSalon)
+        val etCargo = findViewById<EditText>(R.id.etCargo)
+        val etDescripcion = findViewById<EditText>(R.id.etDescripcion)
+
+
         val btnGuardarPrestamo = findViewById<View>(R.id.btnGuardarPrestamo)
         btnGuardarPrestamo.setOnClickListener{
-            Toast.makeText(this, "Solicitud enviada correctamente!!", Toast.LENGTH_SHORT).show()
-            finish()
+
+            if (etCiudad.text.isEmpty() || etBloque.text.isEmpty() || etDireccion.text.isEmpty()
+                    || etSalon.text.isEmpty() || etCargo.text.isEmpty() || etDescripcion.text.isEmpty()) {
+                Toast.makeText(this, "Por favor diligenciar todos los campos.", Toast.LENGTH_SHORT).show()
+            } else {
+                showPrestamoDataToConfirm()
+                // continua a recumen de pretamo y confirmar envio
+                cvstep1.visibility = View.GONE
+                cvstep2.visibility = View.VISIBLE
+            }
         }
+
+        val btnEnviarPrestamo = findViewById<View>(R.id.btnEnviarPrestamo)
+        btnEnviarPrestamo.setOnClickListener {
+            Toast.makeText(this, "Solicitud enviada correctamente!!", Toast.LENGTH_SHORT).show()
+
+        }
+
+    }
+
+    private fun showPrestamoDataToConfirm(){
+        val etCiudad = findViewById<EditText>(R.id.etCiudad)
+        val etBloque = findViewById<EditText>(R.id.etBloque)
+        val etDireccion = findViewById<EditText>(R.id.etDireccion)
+        val etSalon = findViewById<EditText>(R.id.etSalon)
+        val etCargo = findViewById<EditText>(R.id.etCargo)
+        val etDescripcion = findViewById<EditText>(R.id.etDescripcion)
+
+        val tvCiudadPrestamo = findViewById<TextView>(R.id.tvCiudadPrestamo)
+        tvCiudadPrestamo.text = etCiudad.text.toString()
+        val tvBloquePrestamo = findViewById<TextView>(R.id.tvBloquePrestamo)
+        tvBloquePrestamo.text = etBloque.text.toString()
+        val tvDireccionPrestamo = findViewById<TextView>(R.id.tvDireccionPrestamo)
+        tvDireccionPrestamo.text = etDireccion.text.toString()
+        val tvSalonPrestamo = findViewById<TextView>(R.id.tvSalonPrestamo)
+        tvSalonPrestamo.text = etSalon.text.toString()
+        val tvProgramaPrestamo = findViewById<TextView>(R.id.tvProgramaPrestamo)
+        tvProgramaPrestamo.text = etCargo.text.toString()
+        val tvDescripcionPrestamo = findViewById<TextView>(R.id.tvDescripcionPrestamo)
+        tvDescripcionPrestamo.text = etDescripcion.text.toString()
+    }
+
+    override fun onBackPressed() {
+        val cvstep1 = findViewById<View>(R.id.cvstep1)
+        val cvstep2 = findViewById<View>(R.id.cvstep2)
+        when {
+            cvstep2.visibility == View.VISIBLE -> {
+                cvstep2.visibility = View.GONE
+                cvstep1.visibility = View.VISIBLE
+            }
+            cvstep1.visibility == View.VISIBLE -> {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle(getString(R.string.dialog_create_prestamo_exit_title))
+                builder.setMessage(getString(R.string.dialog_create_prestamo_exix_message))
+                builder.setPositiveButton(getString(R.string.dialog_create_prestamo_exit_positive_btn)) { _, _ ->
+                    finish()
+                }
+                builder.setNegativeButton(getString(R.string.dialog_create_prestamo_exit_negative_btn)) { dialog, with ->
+                    dialog.dismiss()
+                }
+
+                val dialog = builder.create()
+                dialog.show()
+            }
+        }
+
+
     }
 }
+

@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CrearPrestamoActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="14dp"
-    android:orientation="vertical"
     android:gravity="center"
-    tools:context=".CrearPrestamoActivity">
+    android:orientation="vertical"
+    android:padding="14dp">
 
     <TextView
         android:id="@+id/lbtitulo"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginBottom="14dp"
+        android:gravity="center"
+        android:text="@string/label_SolicitudPrestamo"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:text="@string/label_SolicitudPrestamo"/>
+        android:textColor="@color/black" />
+
+    <include layout="@layout/card_view_step_one"/>
+    <include layout="@layout/card_view_step_two"/>
 
     <androidx.cardview.widget.CardView
-        android:elevation="8dp"
+        android:id="@+id/cvstep2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:visibility="gone"
+        android:elevation="8dp"
         app:cardCornerRadius="10dp">
 
         <androidx.core.widget.NestedScrollView
@@ -36,137 +42,183 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_confirm_prestamo_data"
+                    android:gravity="center_horizontal"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:textSize="16dp"
-                    android:layout_width="match_parent"
-                    android:gravity="left"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="@string/label_Ciudad"/>
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/etborde"
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/label_Ciudad"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvCiudadPrestamo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Bogota" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/black" />
-
-                <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="16dp"
-                    android:layout_width="match_parent"
-                    android:gravity="left"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="@string/label_bloque"/>
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/etborde"
-                    android:inputType="textEmailAddress"
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/label_bloque"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvBloquePrestamo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="31" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"/>
-
-                <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/label_direccion"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvDireccionPrestamo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Calle 70 # 190-10" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:gravity="left"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="@string/label_direccion"/>
-
-                <EditText
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/etborde"
-                    android:textColor="@color/black"
-                    android:inputType="textEmailAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/label_Salon_oficina"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvSalonPrestamo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="202" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:gravity="left"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="@string/label_Salon_oficina"/>
-
-                <EditText
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/etborde"
-                    android:textColor="@color/black"
-                    android:inputType="textEmailAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/label_cargo_programa"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvProgramaPrestamo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Derecho" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:gravity="left"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="@string/label_cargo_programa"/>
-
-                <EditText
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/etborde"
-                    android:textColor="@color/black"
-                    android:inputType="textEmailAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
                     android:layout_marginLeft="5dp"
-                    android:textSize="16dp"
-                    android:layout_width="match_parent"
-                    android:gravity="left"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="@string/label_descripcion"/>
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/etborde"
-                    android:textColor="@color/black"
-                    android:inputType="textEmailAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/label_descripcion"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvDescripcionPrestamo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="Portatil para presentacion en clases" />
+
+                </LinearLayout>
 
                 <Button
-                    android:paddingLeft="60dp"
-                    android:paddingRight="40dp"
-                    app:icon="@drawable/listo"
-                    android:id="@+id/btnGuardarPrestamo"
+                    android:id="@+id/btnEnviarPrestamo"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_margin="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@color/btnsprimary"
-                    android:text="@string/btn_hacer_solicitud"
-                    app:backgroundTint="@color/btnsprimary" />
+                    android:paddingLeft="60dp"
+                    android:paddingRight="40dp"
+                    android:text="@string/btn_guardar_solicitud"
+                    app:backgroundTint="@color/btnsprimary"
+                    app:icon="@drawable/listo" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.core.widget.NestedScrollView>
 
     </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>

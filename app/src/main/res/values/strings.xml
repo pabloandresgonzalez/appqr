@@ -22,7 +22,7 @@
     <string name="label_Salon_oficina">Salon / Oficina</string>
     <string name="label_cargo_programa">Cargo / Porgrama</string>
     <string name="label_descripcion">Descripcion</string>
-    <string name="btn_hacer_solicitud">Hacer solicitud</string>
+    <string name="btn_hacer_solicitud">Continuar</string>
     <string name="label_SolicitudPrestamo">Prestamo</string>
     <string name="btnInicio">Inicio</string>
     <string name="btn_mis_prestamos">Mis Prestamos</string>
@@ -31,4 +31,10 @@
     <string name="item_prestamo_bloque">Lugar / Bloque: %1$s</string>
     <string name="label_my_prestamos">Mis prestamos</string>
     <string name="press_back_again">Presione una ves más para salir</string>
+    <string name="dialog_create_prestamo_exit_title">¿Seguro que deseas salir?</string>
+    <string name="dialog_create_prestamo_exix_message">Si abandonas ahora, los datos has que ingresaste se perderán.</string>
+    <string name="dialog_create_prestamo_exit_positive_btn">Si, salir</string>
+    <string name="dialog_create_prestamo_exit_negative_btn">Continuar la solicitud</string>
+    <string name="label_confirm_prestamo_data">Datos del prestamo</string>
+    <string name="btn_guardar_solicitud">Enviar solicitud</string>
 </resources>
