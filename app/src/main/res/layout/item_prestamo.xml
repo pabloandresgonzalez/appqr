@@ -11,7 +11,7 @@
     app:cardUseCompatPadding="true"
     app:cardElevation="4dp"
     app:cardCornerRadius="10dp"
-    tools:context=".PrestamoAdapter" >
+    tools:context=".ui.PrestamoAdapter" >
 
 
     <LinearLayout

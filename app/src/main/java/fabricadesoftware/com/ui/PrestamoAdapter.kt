@@ -1,10 +1,11 @@
-package fabricadesoftware.com
+package fabricadesoftware.com.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import fabricadesoftware.com.R
 import fabricadesoftware.com.model.Prestamo
 
 

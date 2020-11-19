@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@drawable/logo"
+    android:background="@color/purple_700"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MenuActivity">
+    tools:context=".ui.MenuActivity">
 
     <Button
             app:backgroundTint="@color/btnsprimary"

@@ -1,5 +1,6 @@
-package fabricadesoftware.com
+package fabricadesoftware.com.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -7,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import fabricadesoftware.com.R
 
 
 class CrearPrestamoActivity : AppCompatActivity() {
@@ -33,7 +35,7 @@ class CrearPrestamoActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor diligenciar todos los campos.", Toast.LENGTH_SHORT).show()
             } else {
                 showPrestamoDataToConfirm()
-                // continua a recumen de pretamo y confirmar envio
+                // continua a resumen de pretamo y confirmar envio
                 cvstep1.visibility = View.GONE
                 cvstep2.visibility = View.VISIBLE
             }
@@ -41,8 +43,10 @@ class CrearPrestamoActivity : AppCompatActivity() {
 
         val btnEnviarPrestamo = findViewById<View>(R.id.btnEnviarPrestamo)
         btnEnviarPrestamo.setOnClickListener {
+            val intent = Intent(this, PrestamoActivity::class.java)
+            startActivity(intent)
+            finish()
             Toast.makeText(this, "Solicitud enviada correctamente!!", Toast.LENGTH_SHORT).show()
-
         }
 
     }

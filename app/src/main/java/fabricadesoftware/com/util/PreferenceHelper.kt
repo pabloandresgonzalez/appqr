@@ -1,4 +1,4 @@
-package fabricadesoftware.com
+package fabricadesoftware.com.util
 
 import android.content.Context
 import android.content.SharedPreferences

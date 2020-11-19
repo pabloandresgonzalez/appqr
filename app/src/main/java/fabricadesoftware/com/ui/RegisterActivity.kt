@@ -1,10 +1,10 @@
-package fabricadesoftware.com
+package fabricadesoftware.com.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import fabricadesoftware.com.R
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

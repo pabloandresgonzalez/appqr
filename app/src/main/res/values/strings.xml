@@ -37,4 +37,8 @@
     <string name="dialog_create_prestamo_exit_negative_btn">Continuar la solicitud</string>
     <string name="label_confirm_prestamo_data">Datos del prestamo</string>
     <string name="btn_guardar_solicitud">Enviar solicitud</string>
+    <string name="error_login_response">Respuesta inesperada del servidor</string>
+    <string name="error_invalid_credentials">Las credenciales son incorrectas</string>
+    <string name="error_empty_credentials">Por favor ingrese un correo y una contraseña</string>
+    <string name="welcome_name">Bienvenido %1$s</string>
 </resources>

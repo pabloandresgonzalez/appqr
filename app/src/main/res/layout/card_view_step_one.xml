@@ -10,7 +10,7 @@
     android:layout_margin="10dp"
     android:elevation="8dp"
     app:cardCornerRadius="10dp"
-    tools:context=".CrearPrestamoActivity">
+    tools:context=".ui.CrearPrestamoActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
