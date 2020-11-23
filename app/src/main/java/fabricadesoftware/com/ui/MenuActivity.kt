@@ -66,7 +66,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun performLogout() {
-        val tokenResult = preferences["token", ""]
+        val tokenResult = preferences["tokenResult", ""]
         val call = apiService.postLogout("Bearer $tokenResult")
         call.enqueue(object: Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
@@ -85,6 +85,6 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun clearSessionPreference() {
-        preferences["token"] = ""
+        preferences["tokenResult"] = ""
     }
 }

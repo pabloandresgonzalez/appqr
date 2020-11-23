@@ -9,8 +9,10 @@ import fabricadesoftware.com.R
 import fabricadesoftware.com.model.Prestamo
 
 
-class PrestamoAdapter(private val prestamos: ArrayList<Prestamo>)
+class PrestamoAdapter
     : RecyclerView.Adapter<PrestamoAdapter.ViewHolder>(){
+
+    var prestamos = ArrayList<Prestamo>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvprestamoid: TextView = itemView.findViewById(R.id.tvprestamoid)
@@ -19,7 +21,7 @@ class PrestamoAdapter(private val prestamos: ArrayList<Prestamo>)
 
         fun bind(prestamo: Prestamo){
             tvprestamoid.text = itemView.context.getString(R.string.item_prestamo_id, prestamo.id)
-            tvusuario.text = itemView.context.getString(R.string.item_prestamo_usuario, prestamo.name_user)
+            tvusuario.text = itemView.context.getString(R.string.item_prestamo_usuario, prestamo.nameUser)
             tvbloque.text = itemView.context.getString(R.string.item_prestamo_bloque, prestamo.bloque)
         }
     }

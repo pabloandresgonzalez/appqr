@@ -35,9 +35,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //usando un object preferenceHelper de un articulo sugerido
         val preferences = PreferenceHelper.defaultPrefs(this)
-        if (preferences["token", ""].contains("."))
+        if (preferences["tokenResult", ""].contains("."))
             gotoMenuActivity()
 
         val btnLogin = findViewById<View>(R.id.btnLogin)
@@ -69,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                         return
                     }
                     if (loginResponse.success) {
-                        createSessionPreference(loginResponse.token)
+                        createSessionPreference(loginResponse.tokenResult)
                         gotoMenuActivity()
                     } else {
                         toast(getString(R.string.error_invalid_credentials))
@@ -82,17 +81,13 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 toast("Por favor ingrese e-mail y contraseña")
             }
-
         })
-
-
     }
 
 
     private fun createSessionPreference(tokenResult: String) {
-        //usando un object preferenceHelper de un articulo sugerido que llema al metodo set
         val preferences = PreferenceHelper.defaultPrefs(this)
-        preferences["token"] = tokenResult
+        preferences["tokenResult"] = tokenResult
     }
 
     private fun gotoMenuActivity() {
