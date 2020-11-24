@@ -26,9 +26,6 @@
     <string name="label_SolicitudPrestamo">Prestamo</string>
     <string name="btnInicio">Inicio</string>
     <string name="btn_mis_prestamos">Mis Prestamos</string>
-    <string name="item_prestamo_id">Presta # %1$d</string>
-    <string name="item_prestamo_usuario">Usuario: %1$s</string>
-    <string name="item_prestamo_bloque">Lugar / Bloque: %1$s</string>
     <string name="label_my_prestamos">Mis prestamos</string>
     <string name="press_back_again">Presione una ves más para salir</string>
     <string name="dialog_create_prestamo_exit_title">¿Seguro que deseas salir?</string>
@@ -41,4 +38,26 @@
     <string name="error_invalid_credentials">Las credenciales son incorrectas</string>
     <string name="error_empty_credentials">Por favor ingrese un correo y una contraseña</string>
     <string name="welcome_name">Bienvenido %1$s</string>
+    <string name="item_prestamo_id">Prestamo #: %1$d</string>
+    <string name="item_prestamo_usuario">Nombres: %1$s</string>
+    <string name="item_prestamo_bloque">Lugar / Bloque: %1$s</string>
+    <string name="item_prestamo_direccion">Salon / Oficina:  %1$s</string>
+    <string name="item_prestamo_programa">Programa / Cargo:  %1$s</string>
+    <string name="item_prestamo_estado">Estado:  %1$s</string>
+    <string name="item_prestamo_descripcion">Descripcion:  %1$s</string>
+    <string name="item_prestamo_userid">Id usuario:  %1$s</string>
+    <string name="item_prestamos_surnameuser">Apellidos:  %1$s</string>
+    <string name="item_prestamos_celular">Cedula:  %1$s</string>
+    <string name="item_prestamo_ciudad">Ciudad:  %1$s</string>
+    <string name="item_prestamo_activo">Activo:  %1$s</string>
+    <string name="item_prestamo_detalle">Mas detalles</string>
+    <string name="item_prestamo_serial">Serial:  %1$s</string>
+    <string name="item_prestamo_placa">Placa:  %1$s</string>
+    <string name="item_prestamo_celular">Celular:  %1$s</string>
+    <string name="item_prestamo_referencia">Referencia:  %1$s</string>
+    <string name="item_prestamo_cantidad">Cantidad:  %1$s</string>
+    <string name="item_prestamo_salidapor">Salida por:  %1$s</string>
+    <string name="item_prestamo_editadopor">Editado por:  %1$s</string>
+    <string name="item_prestamo_creado">Creado:  %1$s</string>
+    <string name="item_prestamo_actualizado">Actualizado:  %1$s</string>
 </resources>

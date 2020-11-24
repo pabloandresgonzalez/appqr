@@ -15,7 +15,7 @@
 
 
     <LinearLayout
-        android:padding="10dp"
+        android:padding="14dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -27,16 +27,163 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/tvusuario"
-            tools:text="Usuario: "
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
             android:id="@+id/tvbloque"
             tools:text="Lugar / Bloque: "
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvdireccion"
+            tools:text="@string/item_prestamo_direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvprograma"
+            tools:text="@string/item_prestamo_programa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvestado"
+            tools:text="@string/item_prestamo_estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvdescripcion"
+            tools:text="@string/item_prestamo_descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="0dp"
+                android:id="@+id/tvDetalle"
+                tools:text="@string/item_prestamo_detalle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:padding="1dp"
+                android:layout_marginTop="0dp"
+                android:id="@+id/ibExpand"
+                android:src="@drawable/detalle"
+                tools:src="@drawable/detallemenos"
+                android:background="@color/white"
+                android:layout_margin="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDetails"
+            android:visibility="gone"
+            tools:Visibility="Visible"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvuserId"
+                tools:text="@string/item_prestamo_userid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvusuario"
+                tools:text="Usuario: "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvsurnameUser"
+                tools:text="@string/item_prestamos_surnameuser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvcedulaUser"
+                tools:text="@string/item_prestamos_celular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvcelular"
+                tools:text="@string/item_prestamo_celular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvciudad"
+                tools:text="@string/item_prestamo_ciudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvactivo"
+                tools:text="@string/item_prestamo_activo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvcantidad"
+                tools:text="@string/item_prestamo_cantidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvplaca"
+                tools:text="@string/item_prestamo_placa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvserial"
+                tools:text="@string/item_prestamo_serial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvreferencia"
+                tools:text="@string/item_prestamo_referencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvsalidaPor"
+                tools:text="@string/item_prestamo_salidapor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tveditadoPor"
+                tools:text="@string/item_prestamo_editadopor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvCreado"
+                tools:text="@string/item_prestamo_creado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvactualizado"
+                tools:text="@string/item_prestamo_actualizado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
