@@ -1,6 +1,5 @@
 package fabricadesoftware.com.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -9,9 +8,27 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import fabricadesoftware.com.R
+import fabricadesoftware.com.io.ApiService
+import fabricadesoftware.com.io.response.SimpleResponse
+import fabricadesoftware.com.util.PreferenceHelper
+import fabricadesoftware.com.util.PreferenceHelper.get
+import fabricadesoftware.com.util.toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class CrearPrestamoActivity : AppCompatActivity() {
+
+    private val apiService: ApiService by lazy {
+        ApiService.create()
+    }
+
+    private val preferences by lazy {
+        PreferenceHelper.defaultPrefs(this)
+    }
 
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,11 +60,73 @@ class CrearPrestamoActivity : AppCompatActivity() {
 
         val btnEnviarPrestamo = findViewById<View>(R.id.btnEnviarPrestamo)
         btnEnviarPrestamo.setOnClickListener {
+            /*
             val intent = Intent(this, PrestamoActivity::class.java)
             startActivity(intent)
             finish()
-            Toast.makeText(this, "Solicitud enviada correctamente!!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Solicitud enviada correctamente!!", Toast.LENGTH_SHORT).show()*/
+            performStorePrestamo()
         }
+
+    }
+
+    private fun performStorePrestamo() {
+        val btnEnviarPrestamo = findViewById<View>(R.id.btnEnviarPrestamo)
+        btnEnviarPrestamo.isClickable = false
+
+        val tokenResult = preferences["tokenResult", ""]
+        val authHeader = "Bearer, $tokenResult"
+
+        val tvCiudadPrestamo =  findViewById<TextView>(R.id.tvCiudadPrestamo)
+        val ciudad = tvCiudadPrestamo.text.toString()
+        val tvBloquePrestamo = findViewById<TextView>(R.id.tvBloquePrestamo)
+        val bloque = tvBloquePrestamo.text.toString()
+        val tvDireccionPrestamo = findViewById<TextView>(R.id.tvDireccionPrestamo)
+        val direccion = tvDireccionPrestamo.text.toString()
+        val tvSalonPrestamo = findViewById<TextView>(R.id.tvSalonPrestamo)
+        val salon = tvSalonPrestamo.text.toString()
+        val tvProgramaPrestamo = findViewById<TextView>(R.id.tvProgramaPrestamo)
+        val programa = tvProgramaPrestamo.text.toString()
+        val tvCelularPrestamo = findViewById<TextView>(R.id.tvCelularPrestamo)
+        val celular = tvCelularPrestamo.text.toString()
+        val tvDescripcionPrestamo = findViewById<TextView>(R.id.tvDescripcionPrestamo)
+        val descripcion = tvDescripcionPrestamo.text.toString()
+
+        val referencia = ""
+        val cantidad = ""
+        val d = Date()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val date = Date()
+        val editadopor: String = dateFormat.format(date)
+        val estado = ""
+
+
+        val call = apiService.storePrestamo(
+                authHeader, ciudad,
+                bloque, direccion,
+                salon, programa,
+                celular, descripcion,
+                estado, referencia,
+                cantidad, editadopor
+        )
+        call.enqueue(object : Callback<SimpleResponse> {
+            override fun onResponse(call: Call<SimpleResponse>, response: Response<SimpleResponse>) =
+                    if (response.isSuccessful) {
+                        toast(getString(R.string.create_prestamo_success))
+                        finish()
+                    } else {
+                        toast(getString(R.string.create_prestamo_error))
+                        btnEnviarPrestamo.isClickable = false
+                    }
+
+            override fun onFailure(call: Call<SimpleResponse>, t: Throwable) {
+                toast(t.localizedMessage)
+                btnEnviarPrestamo.isClickable = false
+            }
+
+
+        })
+
 
     }
 
@@ -100,4 +179,5 @@ class CrearPrestamoActivity : AppCompatActivity() {
 
     }
 }
+
 

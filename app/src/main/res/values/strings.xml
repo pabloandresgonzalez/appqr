@@ -60,4 +60,8 @@
     <string name="item_prestamo_editadopor">Editado por:  %1$s</string>
     <string name="item_prestamo_creado">Creado:  %1$s</string>
     <string name="item_prestamo_actualizado">Actualizado:  %1$s</string>
+    <string name="create_prestamo_success">Solicitud enviada correctamente!!</string>
+    <string name="create_prestamo_error">Error inesperado al registrar cita medica.</string>
+    <string name="label_celular_programa">Celular</string>
+    <string name="label_celular">3144534311</string>
 </resources>

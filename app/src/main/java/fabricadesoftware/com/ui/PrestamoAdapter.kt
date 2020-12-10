@@ -1,12 +1,17 @@
 package fabricadesoftware.com.ui
 
+import android.content.ClipData
 import android.opengl.Visibility
+import android.os.Build
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import fabricadesoftware.com.R
 import fabricadesoftware.com.model.Prestamo
@@ -47,6 +52,7 @@ class PrestamoAdapter
 
 
 
+        @RequiresApi(Build.VERSION_CODES.KITKAT)
         fun bind(prestamo: Prestamo){
             tvprestamoid.text = itemView.context.getString(R.string.item_prestamo_id, prestamo.id)
             tvusuario.text = itemView.context.getString(R.string.item_prestamo_usuario, prestamo.nameUser)
@@ -72,6 +78,7 @@ class PrestamoAdapter
             tvactualizado.text = itemView.context.getString(R.string.item_prestamo_actualizado,prestamo.updatedAt)
 
             ibExpand.setOnClickListener(){
+                TransitionManager.beginDelayedTransition(itemView.parent as ViewGroup, AutoTransition())
                 if (linearLayoutDetails.visibility == View.VISIBLE){
                     linearLayoutDetails.visibility = View.GONE
                     ibExpand.setImageResource(R.drawable.detalle)
@@ -79,7 +86,6 @@ class PrestamoAdapter
                     linearLayoutDetails.visibility = View.VISIBLE
                     ibExpand.setImageResource(R.drawable.detallemenos)
                 }
-
             }
         }
 
@@ -93,6 +99,7 @@ class PrestamoAdapter
     }
 
     // Binds date
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val prestamo = prestamos[position]
 

@@ -2,31 +2,6 @@ package fabricadesoftware.com.model
 
 import com.google.gson.annotations.SerializedName
 
-/*
-"id": 1,
-"user_id": 1,
-"name_user": "Pablo Andres",
-"surname_user": "Gonzalez Angel",
-"cedula_user": "80153783",
-"ciudad": "Bogota",
-"bloque": "Casa",
-"direccion": "Carrera 9 # 170 - 20",
-"estado": "Abierto",
-"nombre_activo": "portatil",
-"serial": "1",
-"placa": "1",
-"salon": "TI",
-"programa": "Auxiliar TI",
-"celular": "3144534311",
-"referencia": "1",
-"cantidad": 1,
-"salida_por": "No aplica",
-"descripcion": "Prestamo portatil para trabajo en casa",
-"editado_por": "pabloandres6@gmail.com",
-"created_at": "2020-09-29T03:28:53.000000Z",
-"updated_at": "2020-11-06T00:07:21.000000Z"
- */
-
 data class Prestamo(
 
 
