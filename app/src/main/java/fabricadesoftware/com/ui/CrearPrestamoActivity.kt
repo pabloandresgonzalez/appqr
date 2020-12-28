@@ -63,12 +63,6 @@ class CrearPrestamoActivity : AppCompatActivity() {
 
         val btnEnviarPrestamo = findViewById<View>(R.id.btnEnviarPrestamo)
         btnEnviarPrestamo.setOnClickListener {
-            /*
-            val intent = Intent(this, PrestamoActivity::class.java)
-            startActivity(intent)
-            finish()
-            Toast.makeText(this, "Solicitud enviada correctamente!!", Toast.LENGTH_SHORT).show()
-            */
             performStorePrestamo()
         }
 
