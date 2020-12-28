@@ -1,5 +1,6 @@
 package fabricadesoftware.com.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import fabricadesoftware.com.R
 import fabricadesoftware.com.io.ApiService
 import fabricadesoftware.com.io.response.SimpleResponse
+import fabricadesoftware.com.model.User
 import fabricadesoftware.com.util.PreferenceHelper
 import fabricadesoftware.com.util.PreferenceHelper.get
 import fabricadesoftware.com.util.toast
@@ -18,6 +20,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CrearPrestamoActivity : AppCompatActivity() {
@@ -52,7 +55,7 @@ class CrearPrestamoActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor diligenciar todos los campos.", Toast.LENGTH_SHORT).show()
             } else {
                 showPrestamoDataToConfirm()
-                // continua a resumen de pretamo y confirmar envio
+                // continua a resumen de prestamo y confirmar envio
                 cvstep1.visibility = View.GONE
                 cvstep2.visibility = View.VISIBLE
             }
@@ -64,7 +67,8 @@ class CrearPrestamoActivity : AppCompatActivity() {
             val intent = Intent(this, PrestamoActivity::class.java)
             startActivity(intent)
             finish()
-            Toast.makeText(this, "Solicitud enviada correctamente!!", Toast.LENGTH_SHORT).show()*/
+            Toast.makeText(this, "Solicitud enviada correctamente!!", Toast.LENGTH_SHORT).show()
+            */
             performStorePrestamo()
         }
 
@@ -75,7 +79,7 @@ class CrearPrestamoActivity : AppCompatActivity() {
         btnEnviarPrestamo.isClickable = false
 
         val tokenResult = preferences["tokenResult", ""]
-        val authHeader = "Bearer, $tokenResult"
+        val authHeader = "Bearer $tokenResult"
 
         val tvCiudadPrestamo =  findViewById<TextView>(R.id.tvCiudadPrestamo)
         val ciudad = tvCiudadPrestamo.text.toString()
@@ -87,27 +91,13 @@ class CrearPrestamoActivity : AppCompatActivity() {
         val salon = tvSalonPrestamo.text.toString()
         val tvProgramaPrestamo = findViewById<TextView>(R.id.tvProgramaPrestamo)
         val programa = tvProgramaPrestamo.text.toString()
-        val tvCelularPrestamo = findViewById<TextView>(R.id.tvCelularPrestamo)
-        val celular = tvCelularPrestamo.text.toString()
         val tvDescripcionPrestamo = findViewById<TextView>(R.id.tvDescripcionPrestamo)
         val descripcion = tvDescripcionPrestamo.text.toString()
 
-        val referencia = ""
-        val cantidad = ""
-        val d = Date()
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val date = Date()
-        val editadopor: String = dateFormat.format(date)
-        val estado = ""
-
-
         val call = apiService.storePrestamo(
                 authHeader, ciudad,
-                bloque, direccion,
-                salon, programa,
-                celular, descripcion,
-                estado, referencia,
-                cantidad, editadopor
+                bloque, direccion, salon,
+                programa, descripcion
         )
         call.enqueue(object : Callback<SimpleResponse> {
             override fun onResponse(call: Call<SimpleResponse>, response: Response<SimpleResponse>) =
@@ -123,11 +113,7 @@ class CrearPrestamoActivity : AppCompatActivity() {
                 toast(t.localizedMessage)
                 btnEnviarPrestamo.isClickable = false
             }
-
-
         })
-
-
     }
 
     private fun showPrestamoDataToConfirm(){

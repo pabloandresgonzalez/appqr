@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class Prestamo(
 
-
     val id: Int,
     val ciudad: String,
     val bloque: String,
@@ -28,8 +27,6 @@ data class Prestamo(
     @SerializedName("editado_por") val editadoPor: String,
     @SerializedName("created_at") val createdAt: String,
     @SerializedName("updated_at") val updatedAt: String
-
-
 )
 
 

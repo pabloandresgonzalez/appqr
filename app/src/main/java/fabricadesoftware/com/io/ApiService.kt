@@ -29,37 +29,17 @@ interface ApiService {
             Call<ArrayList<Prestamo>>
 
     @POST("prestamos")
-    @Headers("Accept: application/jason")
+    @Headers("Accept: application/json")
     fun storePrestamo(
             @Header("Authorization") authHeader: String,
-            /*
             @Query("ciudad") ciudad: String,
             @Query("bloque") bloque: String,
             @Query("direccion") direccion: String,
             @Query("salon") salon: String,
             @Query("programa") programa: String,
-            @Query("celular") celular: String,
-            @Query( "descripcion") descripcion: String,
-             */
-           // @Query("user_id") user_id: Int,
-            //@Query("name_user") name_user: Int,
-            //@Query("surname_user") surname_user: String,
-            //@Query("cedula_user") cedula_user: String,
-            @Query("ciudad") ciudad: String,
-            @Query("bloque") bloque: String,
-            @Query("direccion") direccion: String,
-            @Query("salon") salon: String,
-            @Query("programa") programa: String,
-            @Query("celular") celular: String,
-            @Query( "descripcion") descripcion: String,
-            @Query("estado") estado: String,
-            @Query("referencia") referencia: String,
-            @Query("cantidad") cantidad: String,
-            @Query("editado_por") editadopor: String
-
+            @Query("descripcion") descripcion: String
     ):
     Call<SimpleResponse>
-
 
     companion object Factory {
         private const val BASE_URL = "http://167.172.255.179/api/auth/"

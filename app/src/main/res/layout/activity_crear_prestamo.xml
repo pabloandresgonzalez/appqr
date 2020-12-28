@@ -20,7 +20,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black" />
 
-    <include layout="@layout/card_view_step_one"/>
+    <include layout="@layout/card_view_step_one" />
+
     <include layout="@layout/card_view_step_two"/>
 
     <androidx.cardview.widget.CardView
