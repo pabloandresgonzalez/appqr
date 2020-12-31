@@ -6,7 +6,7 @@
     <string name="btn_login">Ingresar</string>
     <string name="label_go_to_register">¿Aun no te has registrado?</string>
     <string name="label_register">Registro</string>
-    <string name="label_name">Nombre completo</string>
+    <string name="label_name">Nombre</string>
     <string name="btn_register">Confirmar registro</string>
     <string name="label_go_to_login">¿Ya tienes una cuenta?</string>
     <string name="please_fill_your_register_data">Por favor completa tus datos</string>
@@ -38,7 +38,7 @@
     <string name="error_invalid_credentials">Las credenciales son incorrectas</string>
     <string name="error_empty_credentials">Por favor ingrese un correo y una contraseña</string>
     <string name="welcome_name">Bienvenido %1$s</string>
-    <string name="item_prestamo_id">Prestamo #: %1$d</string>
+    <string name="item_prestamo_id">Prestamo #: %1$s</string>
     <string name="item_prestamo_usuario">Nombres: %1$s</string>
     <string name="item_prestamo_bloque">Lugar / Bloque: %1$s</string>
     <string name="item_prestamo_direccion">Salon / Oficina:  %1$s</string>
@@ -64,4 +64,12 @@
     <string name="create_prestamo_error">Error inesperado al registrar su prestamo</string>
     <string name="label_celular_programa">Celular</string>
     <string name="label_celular">3144534311</string>
+    <string name="label_password_confirmation">Confirmar clave</string>
+    <string name="error_register_empty_fiels">Por favor completar todos los campos</string>
+    <string name="error_register_password_do_not_match">Las contraseñas no coinciden</string>
+    <string name="label_surname">Apellido</string>
+    <string name="error_register_validation">Ocurrió un error en el registro</string>
+    <string name="label_register_celular">Celular</string>
+    <string name="label_cedula">Cedula</string>
+
 </resources>

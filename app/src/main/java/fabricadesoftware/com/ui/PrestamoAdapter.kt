@@ -54,7 +54,7 @@ class PrestamoAdapter
 
         @RequiresApi(Build.VERSION_CODES.KITKAT)
         fun bind(prestamo: Prestamo){
-            tvprestamoid.text = itemView.context.getString(R.string.item_prestamo_id, prestamo.id)
+            tvprestamoid.text = itemView.context.getString(R.string.item_prestamo_id, prestamo.id.toString() )
             tvusuario.text = itemView.context.getString(R.string.item_prestamo_usuario, prestamo.nameUser)
             tvbloque.text = itemView.context.getString(R.string.item_prestamo_bloque, prestamo.bloque)
             tvDetalle.text = itemView.context.getString(R.string.item_prestamo_detalle)

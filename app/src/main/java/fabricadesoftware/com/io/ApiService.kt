@@ -10,7 +10,6 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -38,8 +37,18 @@ interface ApiService {
             @Query("salon") salon: String,
             @Query("programa") programa: String,
             @Query("descripcion") descripcion: String
-    ):
-    Call<SimpleResponse>
+    ): Call<SimpleResponse>
+
+    @POST("register")
+    @Headers("Accept: application/json")
+    fun postRegiter(
+            @Query("name") name: String,
+            @Query("surname") surname: String,
+            @Query("cedula") cedula: String,
+            @Query("email") email: String,
+            @Query("celular") celular: String,
+            @Query("password") password: String
+    ): Call<LoginResponse>
 
     companion object Factory {
         private const val BASE_URL = "http://167.172.255.179/api/auth/"

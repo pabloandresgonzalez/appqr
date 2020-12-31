@@ -22,13 +22,13 @@
 
         <TextView
             android:id="@+id/tvprestamoid"
-            tools:text="Prestamo #: "
+            tools:text="@string/item_prestamo_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/tvbloque"
-            tools:text="Lugar / Bloque: "
+            tools:text="@string/item_prestamo_bloque"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

@@ -11,16 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import fabricadesoftware.com.R
 import fabricadesoftware.com.io.ApiService
 import fabricadesoftware.com.io.response.SimpleResponse
-import fabricadesoftware.com.model.User
 import fabricadesoftware.com.util.PreferenceHelper
 import fabricadesoftware.com.util.PreferenceHelper.get
 import fabricadesoftware.com.util.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 class CrearPrestamoActivity : AppCompatActivity() {
