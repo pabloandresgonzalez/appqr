@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+
         <TextView
             android:id="@+id/tvbloque"
             tools:text="@string/item_prestamo_bloque"
@@ -170,7 +171,7 @@
                 tools:text="@string/item_prestamo_editadopor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
+            <!--
             <TextView
                 android:id="@+id/tvCreado"
                 tools:text="@string/item_prestamo_creado"
@@ -182,7 +183,7 @@
                 tools:text="@string/item_prestamo_actualizado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
+            -->
         </LinearLayout>
 
     </LinearLayout>

@@ -73,6 +73,7 @@ class RegisterActivity : AppCompatActivity() {
                     }
                     if (loginResponse.success) {
                         createSessionPreference(loginResponse.tokenResult)
+                        toast(getString(R.string.welcome_name, loginResponse.user.name))
                         gotoMenuActivity()
                     } else {
                         toast(getString(R.string.error_invalid_credentials))

@@ -44,8 +44,8 @@ class PrestamoAdapter
         val tvcantidad: TextView = itemView.findViewById(R.id.tvcantidad)
         val tvsalidaPor: TextView = itemView.findViewById(R.id.tvsalidaPor)
         val tveditadoPor: TextView = itemView.findViewById(R.id.tveditadoPor)
-        val tvCreado: TextView = itemView.findViewById(R.id.tvCreado)
-        val tvactualizado: TextView = itemView.findViewById(R.id.tvactualizado)
+        //val tvCreado: TextView = itemView.findViewById(R.id.tvCreado)
+        //val tvactualizado: TextView = itemView.findViewById(R.id.tvactualizado)
 
         val ibExpand: ImageButton = itemView.findViewById(R.id.ibExpand)
         val linearLayoutDetails: View = itemView.findViewById(R.id.linearLayoutDetails)
@@ -74,8 +74,8 @@ class PrestamoAdapter
             tvcantidad.text = itemView.context.getString(R.string.item_prestamo_cantidad,prestamo.cantidad.toString())
             tvsalidaPor.text = itemView.context.getString(R.string.item_prestamo_salidapor,prestamo.salidaPor)
             tveditadoPor.text = itemView.context.getString(R.string.item_prestamo_editadopor,prestamo.editadoPor)
-            tvCreado.text = itemView.context.getString(R.string.item_prestamo_creado,prestamo.createdAt)
-            tvactualizado.text = itemView.context.getString(R.string.item_prestamo_actualizado,prestamo.updatedAt)
+            //tvCreado.text = itemView.context.getString(R.string.item_prestamo_creado,prestamo.createdAt)
+            //tvactualizado.text = itemView.context.getString(R.string.item_prestamo_actualizado,prestamo.updatedAt)
 
             ibExpand.setOnClickListener(){
                 TransitionManager.beginDelayedTransition(itemView.parent as ViewGroup, AutoTransition())
