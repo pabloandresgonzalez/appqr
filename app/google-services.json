@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "157710780660",
+    "project_id": "prestamos-c2337",
+    "storage_bucket": "prestamos-c2337.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157710780660:android:755d7e0bf3e6b195a1f6a1",
+        "android_client_info": {
+          "package_name": "fabricadesoftware.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157710780660-33au7nk82hbfhejfhf5ne7icnpp375q3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5IPTRHwXAgSqIlE-7cZtyf2MzBnhF-jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157710780660-33au7nk82hbfhejfhf5ne7icnpp375q3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

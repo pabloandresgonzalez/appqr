@@ -71,5 +71,7 @@
     <string name="error_register_validation">Ocurrió un error en el registro</string>
     <string name="label_register_celular">Celular</string>
     <string name="label_cedula">Cedula</string>
+    <string name="default_notification_channel_id">default_channel</string>
+    <string name="fcm_message">FCM Message</string>
 
 </resources>

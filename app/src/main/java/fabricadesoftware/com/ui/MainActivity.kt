@@ -3,10 +3,13 @@ package fabricadesoftware.com.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.FirebaseApp
+import com.google.firebase.iid.FirebaseInstanceId
 import fabricadesoftware.com.util.PreferenceHelper
 import fabricadesoftware.com.R
 import fabricadesoftware.com.io.ApiService
@@ -34,6 +37,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //FirebaseApp.initializeApp();
+
+            FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(this) { instanceIdResult ->
+            val deviceToken = instanceIdResult.token
+            Log.d("FCMService", deviceToken)
+        }
+
+
 
         val preferences = PreferenceHelper.defaultPrefs(this)
         if (preferences["tokenResult", ""].contains("."))
