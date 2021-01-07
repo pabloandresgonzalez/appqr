@@ -1,19 +1,16 @@
 package fabricadesoftware.com.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.FirebaseApp
-import com.google.firebase.iid.FirebaseInstanceId
-import fabricadesoftware.com.util.PreferenceHelper
 import fabricadesoftware.com.R
 import fabricadesoftware.com.io.ApiService
 import fabricadesoftware.com.io.response.LoginResponse
+import fabricadesoftware.com.util.PreferenceHelper
 import fabricadesoftware.com.util.PreferenceHelper.get
 import fabricadesoftware.com.util.PreferenceHelper.set
 import fabricadesoftware.com.util.toast
@@ -33,19 +30,9 @@ class MainActivity : AppCompatActivity() {
         Snackbar.make(mainLayout, R.string.press_back_again, Snackbar.LENGTH_SHORT)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //FirebaseApp.initializeApp();
-
-            FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(this) { instanceIdResult ->
-            val deviceToken = instanceIdResult.token
-            Log.d("FCMService", deviceToken)
-        }
-
-
 
         val preferences = PreferenceHelper.defaultPrefs(this)
         if (preferences["tokenResult", ""].contains("."))
@@ -55,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         btnLogin.setOnClickListener{
             // Validar datos del usuario en el servidor
             performLogin()
-
         }
 
         val tvGoToRegister = findViewById<View>(R.id.tvGoToRegister)
@@ -69,9 +55,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun performLogin() {
         val etEmail = findViewById<EditText>(R.id.etEmail)
+        val email = etEmail.text.toString()
         val etPassword = findViewById<EditText>(R.id.etPassword)
-        val call = apiService.postLogin(etEmail.text.toString(), etPassword.text.toString())
+        val password = etPassword.text.toString()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            toast(getString(R.string.error_empty_credentials))
+            return
+        }
+
+        val call = apiService.postLogin(email, password)
         call.enqueue(object: Callback<LoginResponse> {
+
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
@@ -81,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     if (loginResponse.success) {
                         createSessionPreference(loginResponse.tokenResult)
-                        gotoMenuActivity()
+                        gotoMenuActivity(true)
                     } else {
                         toast(getString(R.string.error_invalid_credentials))
                     }
@@ -91,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                toast("Por favor ingrese e-mail y contraseña")
+                toast(getString(R.string.error_login_response))
             }
         })
     }
@@ -102,8 +97,13 @@ class MainActivity : AppCompatActivity() {
         preferences["tokenResult"] = tokenResult
     }
 
-    private fun gotoMenuActivity() {
+    private fun gotoMenuActivity(isUserInput: Boolean = false) {
         val intent = Intent(this, MenuActivity::class.java)
+
+        if (isUserInput) {
+            intent.putExtra("store_token", true)
+        }
+
         startActivity(intent)
         finish()
     }

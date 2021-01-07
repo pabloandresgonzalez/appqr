@@ -3,7 +3,9 @@ package fabricadesoftware.com.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import com.google.firebase.iid.FirebaseInstanceId
 import fabricadesoftware.com.util.PreferenceHelper
 import fabricadesoftware.com.R
 import fabricadesoftware.com.io.ApiService
@@ -28,6 +30,10 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+
+        val storeToken = intent.getBooleanExtra("store_token", false)
+        if (storeToken)
+            storeToken()
 
         val btnCrearPrestamo = findViewById<View>(R.id.btnCrearPrestamo)
         btnCrearPrestamo.setOnClickListener{
@@ -65,6 +71,31 @@ class MenuActivity : AppCompatActivity() {
 
     }
 
+    private fun storeToken() {
+        val tokenResult = preferences["tokenResult", ""]
+        val authHeader = "Bearer $tokenResult"
+
+        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(this) { instanceIdResult ->
+            val deviceToken = instanceIdResult.token
+            //Log.d("FCMService", deviceToken)
+
+            val call = apiService.postToken(authHeader, deviceToken)
+            call.enqueue(object: Callback<Void>  {
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if (response.isSuccessful) {
+                        Log.d(TAG,"Token registrado correctamente")
+                    }else {
+                        Log.d(TAG,"Problema al registrar token")
+                    }
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    toast(t.localizedMessage)
+                }
+            })
+        }
+    }
+
     private fun performLogout() {
         val tokenResult = preferences["tokenResult", ""]
         val call = apiService.postLogout("Bearer $tokenResult")
@@ -86,5 +117,9 @@ class MenuActivity : AppCompatActivity() {
 
     private fun clearSessionPreference() {
         preferences["tokenResult"] = ""
+    }
+
+    companion object {
+        private const val TAG = "MenuActivity"
     }
 }

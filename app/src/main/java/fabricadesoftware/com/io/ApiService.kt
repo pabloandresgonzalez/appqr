@@ -50,6 +50,12 @@ interface ApiService {
             @Query("password") password: String
     ): Call<LoginResponse>
 
+    @POST("fcm/token")
+    fun postToken(
+            @Header("Authorization") authHeader: String,
+            @Query("device_token") token: String
+    ): Call<Void>
+
     companion object Factory {
         private const val BASE_URL = "http://167.172.255.179/api/auth/"
 
