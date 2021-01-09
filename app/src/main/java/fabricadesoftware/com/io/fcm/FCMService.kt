@@ -49,7 +49,6 @@ class FCMService : FirebaseMessagingService() {
         if (remoteMessage.data.isNotEmpty()) {
             Log.d(TAG, "Message data payload: ${remoteMessage.data}")
 
-            // Handle message within 10 seconds
             handleNow()
         }
 
@@ -73,7 +72,7 @@ class FCMService : FirebaseMessagingService() {
      */
     override fun onNewToken(token: String) {
 
-        //  Log.d(TAG, "Refreshed token: $token")
+         Log.d(TAG, "Refreshed token: $token")
         super.onNewToken(token)
 
         // If you want to send messages to this application instance or
