@@ -46,7 +46,6 @@ class PrestamoAdapter
         val tveditadoPor: TextView = itemView.findViewById(R.id.tveditadoPor)
         //val tvCreado: TextView = itemView.findViewById(R.id.tvCreado)
         //val tvactualizado: TextView = itemView.findViewById(R.id.tvactualizado)
-
         val ibExpand: ImageButton = itemView.findViewById(R.id.ibExpand)
         val linearLayoutDetails: View = itemView.findViewById(R.id.linearLayoutDetails)
 

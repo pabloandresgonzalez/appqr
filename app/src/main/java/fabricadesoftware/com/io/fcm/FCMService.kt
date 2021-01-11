@@ -118,7 +118,7 @@ class FCMService : FirebaseMessagingService() {
         val channelId = getString(R.string.default_notification_channel_id)
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_baseline_schedule_24)
+            .setSmallIcon(R.drawable.ic_stat_circle_notifications)
             //.setContentTitle(getString(R.string.fcm_message))
             .setContentTitle(getString(R.string.fcm_message))
             .setContentText(messageBody)

@@ -34,8 +34,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         val preferences = PreferenceHelper.defaultPrefs(this)
         if (preferences["tokenResult", ""].contains("."))
             gotoMenuActivity()
