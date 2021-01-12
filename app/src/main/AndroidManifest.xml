@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appqr">
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_circle_notifications" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@drawable/ic_stat_circle_notifications" />
+
         <activity
             android:name=".ui.PrestamoActivity"
             android:parentActivityName=".ui.MenuActivity" />

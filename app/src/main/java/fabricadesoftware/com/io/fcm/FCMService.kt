@@ -8,6 +8,8 @@ import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
+import androidx.annotation.ColorInt
+import androidx.annotation.IntDef
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -54,7 +56,14 @@ class FCMService : FirebaseMessagingService() {
 
         // Check if message contains a notification payload.
         remoteMessage.notification?.let {
-            Log.d(TAG, "Message Notification Body: ${it.body}")
+            //Log.d(TAG, "Notification Title: ${it.title}")
+            //Log.d(TAG, "Notification Body: ${it.body}")
+
+            val title = remoteMessage.notification?.title ?: getString(R.string.app_name)
+            val body = remoteMessage.notification?.body
+
+            if (body != null)
+            sendNotification(title, body)
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM
@@ -109,7 +118,7 @@ class FCMService : FirebaseMessagingService() {
      *
      * @param messageBody FCM message body received.
      */
-    private fun sendNotification(messageBody: String) {
+    private fun sendNotification(messageTitle: String, messageBody: String) {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -120,7 +129,7 @@ class FCMService : FirebaseMessagingService() {
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.ic_stat_circle_notifications)
             //.setContentTitle(getString(R.string.fcm_message))
-            .setContentTitle(getString(R.string.fcm_message))
+            .setContentTitle(messageTitle)
             .setContentText(messageBody)
             .setAutoCancel(true)
             .setSound(defaultSoundUri)

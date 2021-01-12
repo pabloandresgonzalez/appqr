@@ -9,7 +9,7 @@
     <string name="label_name">Nombre</string>
     <string name="btn_register">Confirmar registro</string>
     <string name="label_go_to_login">¿Ya tienes una cuenta?</string>
-    <string name="please_fill_your_register_data">Por favor ingresa tus datos</string>
+    <string name="please_fill_your_register_data">Bienvenido por favor ingresa tus datos para registrarte</string>
     <string name="btn_create_prestamo_audiovisuales">Prestamo audiovisuales</string>
     <string name="btn_create_prestamo_salida_bien">Salida bienes fijos</string>
     <string name="btn_create_prestamo_parqueadero">Parqueadero bicicleta</string>
