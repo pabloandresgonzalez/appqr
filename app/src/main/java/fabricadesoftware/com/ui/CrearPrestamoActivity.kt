@@ -33,6 +33,10 @@ class CrearPrestamoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_prestamo)
 
+         // Poner el icono en el acction bar
+         supportActionBar!!.setDisplayShowHomeEnabled(true)
+         supportActionBar!!.setIcon(R.mipmap.logo)
+
         val cvstep1 = findViewById<View>(R.id.cvstep1)
         val cvstep2 = findViewById<View>(R.id.cvstep2)
         val etCiudad = findViewById<EditText>(R.id.etCiudad)

@@ -31,6 +31,10 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
+        // Poner el icono en el acction bar
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setIcon(R.mipmap.logo)
+
         val storeToken = intent.getBooleanExtra("store_token", false)
         if (storeToken)
             storeToken()
@@ -122,4 +126,6 @@ class MenuActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "MenuActivity"
     }
+
+    fun btnEscaner(view: View) {}
 }

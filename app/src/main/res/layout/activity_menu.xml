@@ -11,6 +11,19 @@
     tools:context=".ui.MenuActivity">
 
     <Button
+        app:backgroundTint="@color/btnsprimary"
+        android:id="@+id/btnQR"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/btn_abrir_scaner"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
+        app:icon="@drawable/ic_baseline_qr_code_scanner_24"/>
+
+
+    <Button
             app:backgroundTint="@color/btnsprimary"
             android:id="@+id/btnCrearPrestamo"
             android:layout_width="match_parent"

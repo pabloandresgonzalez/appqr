@@ -33,6 +33,10 @@ class PrestamoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prestamo)
 
+        // Poner el icono en el acction bar
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setIcon(R.mipmap.logo)
+
         loadPrestamos()
 
         val rvPrestamos = findViewById<RecyclerView>(R.id.rvprestamos)

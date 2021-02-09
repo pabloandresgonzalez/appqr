@@ -26,6 +26,10 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register2)
 
+        // Poner el icono en el acction bar
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setIcon(R.mipmap.logo)
+
         val tvGoToLogin = findViewById<View>(R.id.tvGoToLogin)
         tvGoToLogin.setOnClickListener{
 
