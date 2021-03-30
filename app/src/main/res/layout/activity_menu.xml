@@ -10,9 +10,33 @@
     android:gravity="center"
     tools:context=".ui.MenuActivity">
 
+    <EditText
+        android:id="@+id/etqr"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:enabled="false"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvResult1"
+        android:layout_width="83dp"
+        android:layout_height="28dp"
+        android:enabled="false"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <Button
         app:backgroundTint="@color/btnsprimary"
         android:id="@+id/btnQR"
+        android:onClick="btnEscaner"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_marginTop="10dp"

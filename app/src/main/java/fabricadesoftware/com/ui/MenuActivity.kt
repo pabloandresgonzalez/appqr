@@ -1,23 +1,28 @@
 package fabricadesoftware.com.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.iid.FirebaseInstanceId
-import fabricadesoftware.com.util.PreferenceHelper
+import com.google.zxing.Result
 import fabricadesoftware.com.R
 import fabricadesoftware.com.io.ApiService
-import fabricadesoftware.com.util.PreferenceHelper.set
+import fabricadesoftware.com.util.PreferenceHelper
 import fabricadesoftware.com.util.PreferenceHelper.get
+import fabricadesoftware.com.util.PreferenceHelper.set
 import fabricadesoftware.com.util.toast
+import me.dm7.barcodescanner.core.BarcodeScannerView
+import me.dm7.barcodescanner.zxing.ZXingScannerView
 import retrofit2.Call
-
 import retrofit2.Callback
 import retrofit2.Response
 
-class MenuActivity : AppCompatActivity() {
+open class MenuActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     private val apiService by lazy {
         ApiService.create()
@@ -27,9 +32,16 @@ class MenuActivity : AppCompatActivity() {
         PreferenceHelper.defaultPrefs(this)
     }
 
+    private var mScannerView: ZXingScannerView? = null
+    private var tvResult: TextView? = null
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+
+        tvResult = findViewById<View>(R.id.tvResult1) as TextView
 
         // Poner el icono en el acction bar
         supportActionBar!!.setDisplayShowHomeEnabled(true)
@@ -73,7 +85,33 @@ class MenuActivity : AppCompatActivity() {
             clearSessionPreference()
         }
 
+
     }
+
+    // Activa la camara para escaneo
+    fun btnEscaner(v: View?) {
+
+            // uno de los radio botones esta marcado
+            mScannerView = ZXingScannerView(this)
+            setContentView(mScannerView)
+            mScannerView!!.setResultHandler(this)
+            mScannerView!!.startCamera()
+
+    }
+
+    // Resultado del escaner
+    @override
+    override fun handleResult(result: Result) {
+        val dato = result.text
+        setContentView(R.layout.activity_menu)
+        mScannerView!!.stopCamera()
+        tvResult = findViewById<View>(R.id.etqr) as EditText
+        (tvResult as EditText).setText(dato)
+
+        //sendMail()
+        //addUsers()
+    }
+
 
     private fun storeToken() {
         val tokenResult = preferences["tokenResult", ""]
@@ -84,12 +122,12 @@ class MenuActivity : AppCompatActivity() {
             //Log.d("FCMService", deviceToken)
 
             val call = apiService.postToken(authHeader, deviceToken)
-            call.enqueue(object: Callback<Void>  {
+            call.enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
-                        Log.d(TAG,"Token registrado correctamente")
-                    }else {
-                        Log.d(TAG,"Problema al registrar token")
+                        Log.d(TAG, "Token registrado correctamente")
+                    } else {
+                        Log.d(TAG, "Problema al registrar token")
                     }
                 }
 
@@ -103,10 +141,10 @@ class MenuActivity : AppCompatActivity() {
     private fun performLogout() {
         val tokenResult = preferences["tokenResult", ""]
         val call = apiService.postLogout("Bearer $tokenResult")
-        call.enqueue(object: Callback<Void> {
+        call.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 clearSessionPreference()
-                
+
                 val intent = Intent(this@MenuActivity, MainActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -127,5 +165,12 @@ class MenuActivity : AppCompatActivity() {
         private const val TAG = "MenuActivity"
     }
 
-    fun btnEscaner(view: View) {}
 }
+
+annotation class override
+
+
+
+
+
+

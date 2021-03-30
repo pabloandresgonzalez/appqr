@@ -77,5 +77,12 @@
     <string name="navigation_drawer_open">ok</string>
     <string name="navigation_drawer_close">ok1</string>
     <string name="btn_abrir_scaner">Escanear codigo</string>
+    <string name="txt_scaner">Escanear Codigo</string>
+    <string name="txt_Titulo">Ecaneo</string>
+    <string name="txt_DatoQR1">Resultado</string>
+    <string name="boton_ver_registros">Inicio</string>
+    <string name="txt_Notificar">Correo</string>
+    <string name="botonNotificar">Enviar</string>
+    <string name="boton">Consultar</string>
 
 </resources>
