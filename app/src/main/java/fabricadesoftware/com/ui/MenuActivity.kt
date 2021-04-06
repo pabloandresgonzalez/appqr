@@ -1,13 +1,19 @@
 package fabricadesoftware.com.ui
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.text.method.MovementMethod
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.zxing.Result
 import fabricadesoftware.com.R
@@ -35,13 +41,29 @@ open class MenuActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     private var mScannerView: ZXingScannerView? = null
     private var tvResult: TextView? = null
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+    /*
+        if (ContextCompat.checkSelfPermission(
+                        this@MenuActivity,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                        this@MenuActivity,
+                        Manifest.permission.CAMERA
+                ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                    this@MenuActivity,
+                    arrayOf(
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.CAMERA
+                    ),
+                    1000
+            )
+        }
 
-        tvResult = findViewById<View>(R.id.tvResult1) as TextView
+     */
 
         // Poner el icono en el acction bar
         supportActionBar!!.setDisplayShowHomeEnabled(true)
@@ -99,17 +121,49 @@ open class MenuActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
     }
 
-    // Resultado del escaner
+    // Resultado del escaner y activar los demas botones
     @override
     override fun handleResult(result: Result) {
         val dato = result.text
         setContentView(R.layout.activity_menu)
         mScannerView!!.stopCamera()
-        tvResult = findViewById<View>(R.id.etqr) as EditText
+        tvResult = findViewById<View>(R.id.etqr) as TextView
         (tvResult as EditText).setText(dato)
 
-        //sendMail()
-        //addUsers()
+        val btnCrearPrestamo = findViewById<View>(R.id.btnCrearPrestamo)
+        btnCrearPrestamo.setOnClickListener{
+
+            val intent = Intent(this, CrearPrestamoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnCrearPrestamoBien = findViewById<View>(R.id.btnCrearPrestamoBien)
+        btnCrearPrestamoBien.setOnClickListener{
+
+            val intent = Intent(this, CrearPrestamoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnCrearPrestamoParqueadero = findViewById<View>(R.id.btnCrearPrestamoParqueadero)
+        btnCrearPrestamoParqueadero.setOnClickListener{
+
+            val intent = Intent(this, CrearPrestamoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnMisPrestamos = findViewById<View>(R.id.btnMisPrestamos)
+        btnMisPrestamos.setOnClickListener{
+
+            val intent = Intent(this, PrestamoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnlogout = findViewById<View>(R.id.btnlogout)
+        btnlogout.setOnClickListener{
+            performLogout()
+            clearSessionPreference()
+        }
+
     }
 
 
@@ -164,6 +218,10 @@ open class MenuActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     companion object {
         private const val TAG = "MenuActivity"
     }
+
+}
+
+private fun TextView?.setScroller() {
 
 }
 

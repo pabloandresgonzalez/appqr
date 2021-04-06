@@ -5,7 +5,7 @@
     <string name="label_password">Contraseña</string>
     <string name="btn_login">Ingresar</string>
     <string name="label_go_to_register">¿Aun no te has registrado?</string>
-    <string name="label_register">Registro</string>
+    <string name="label_register">Registro Usuario</string>
     <string name="label_name">Nombre</string>
     <string name="btn_register">Confirmar registro</string>
     <string name="label_go_to_login">¿Ya tienes una cuenta?</string>
@@ -84,5 +84,15 @@
     <string name="txt_Notificar">Correo</string>
     <string name="botonNotificar">Enviar</string>
     <string name="boton">Consultar</string>
+    <string name="label_go_to_poliica">Tratamiento de datos</string>
+    <string name="title_activity_menu22">Menu2Activity2</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 
 </resources>

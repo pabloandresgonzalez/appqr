@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@color/purple_700"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".ui.MenuActivity">
 
 
@@ -24,69 +24,70 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <Button
-        app:backgroundTint="@color/btnsprimary"
         android:id="@+id/btnQR"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="10dp"
         android:onClick="btnEscaner"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginTop="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:paddingStart="60dp"
+        android:paddingEnd="40dp"
         android:text="@string/btn_abrir_scaner"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
-        app:icon="@drawable/ic_baseline_qr_code_scanner_24"/>
-
-
-    <Button
-            app:backgroundTint="@color/btnsprimary"
-            android:id="@+id/btnCrearPrestamo"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="10dp"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:text="@string/btn_create_prestamo_audiovisuales"
-            android:paddingLeft="60dp"
-            android:paddingRight="40dp"
-            app:icon="@drawable/computador"/>
-
-    <Button
         app:backgroundTint="@color/btnsprimary"
+        app:icon="@drawable/ic_baseline_qr_code_scanner_24" />
+
+
+    <Button
+        android:id="@+id/btnCrearPrestamo"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="60dp"
+        android:paddingEnd="40dp"
+        android:text="@string/btn_create_prestamo_audiovisuales"
+        app:backgroundTint="@color/btnsprimary"
+        app:icon="@drawable/computador" />
+
+    <Button
         android:id="@+id/btnCrearPrestamoBien"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:paddingStart="60dp"
+        android:paddingEnd="40dp"
         android:text="@string/btn_create_prestamo_salida_bien"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
-        app:icon="@drawable/oficina"/>
+        app:backgroundTint="@color/btnsprimary"
+        app:icon="@drawable/oficina" />
 
     <Button
-        app:backgroundTint="@color/btnsprimary"
         android:id="@+id/btnCrearPrestamoParqueadero"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:paddingStart="60dp"
+        android:paddingEnd="40dp"
         android:text="@string/btn_create_prestamo_parqueadero"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
-        app:icon="@drawable/bici"/>
+        app:backgroundTint="@color/btnsprimary"
+        app:icon="@drawable/bici" />
 
     <Button
-        app:backgroundTint="@color/btnsprimary"
         android:id="@+id/btnMisPrestamos"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:paddingStart="60dp"
+        android:paddingEnd="40dp"
         android:text="@string/btn_mis_prestamos"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
-        app:icon="@drawable/lista"/>
+        app:backgroundTint="@color/btnsprimary"
+        app:icon="@drawable/lista" />
 
 
     <Button
@@ -95,10 +96,15 @@
         android:layout_height="52dp"
         android:layout_marginTop="10dp"
         android:background="#FFFFFF"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
+        android:paddingStart="60dp"
+        android:paddingEnd="40dp"
         android:text="@string/btn_log_out"
         app:backgroundTint="@color/btnsprimary"
         app:icon="@drawable/power_off" />
 
 </LinearLayout>
+
+
+
+
+

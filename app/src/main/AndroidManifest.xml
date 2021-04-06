@@ -12,7 +12,10 @@
         android:roundIcon="@drawable/logo_ucc"
         android:supportsRtl="true"
         android:theme="@style/Theme.Appqr">
-        <activity android:name=".ui.EscanerActivity"></activity>
+        <activity
+            android:name=".ui.Menu2Activity2"
+            android:label="@string/title_activity_menu22"
+            android:theme="@style/Theme.Appqr.NoActionBar"></activity>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"

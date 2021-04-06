@@ -46,23 +46,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setIcon(R.mipmap.logo)
 
-        if (ContextCompat.checkSelfPermission(
-                this@MainActivity,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this@MainActivity,
-                Manifest.permission.CAMERA
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this@MainActivity,
-                arrayOf(
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.CAMERA
-                ),
-                1000
-            )
-        }
 
         val preferences = PreferenceHelper.defaultPrefs(this)
         if (preferences["tokenResult", ""].contains("."))
@@ -133,7 +116,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun gotoMenuActivity(isUserInput: Boolean = false) {
-        val intent = Intent(this, MenuActivity::class.java)
+        val intent = Intent(this, Menu2Activity2::class.java)
 
         if (isUserInput) {
             intent.putExtra("store_token", true)

@@ -12,13 +12,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_weight="3"
         android:gravity="center_horizontal"
-        android:paddingTop="4dp"
+        android:paddingTop="5dp"
         android:text="@string/label_register"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/white" />
+        android:textColor="@color/teal_200" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +27,7 @@
         android:layout_weight="5"
         android:background="@color/transparent"
         android:orientation="vertical"
-        android:padding="6dp">
+        android:padding="4dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -124,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/btn_register"
-            app:backgroundTint="@color/btnsprimary" />
+            app:backgroundTint="@color/transparent"/>
 
         <TextView
             android:id="@+id/tvGoToLogin"
@@ -134,7 +135,18 @@
             android:layout_marginBottom="2dp"
             android:gravity="center"
             android:text="@string/label_go_to_login"
-            android:textColor="@color/white" />
+            android:textColor="@color/teal_200" />
+
+        <TextView
+            android:id="@+id/tvGoPoliticaDatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:text="@string/label_go_to_poliica"
+            android:textColor="@color/color_white_1000"
+            android:textSize="12dp" />
 
     </LinearLayout>
 
